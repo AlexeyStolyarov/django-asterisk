@@ -1,0 +1,58 @@
+{% load staticfiles %}
+{% load admin_urls %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ATA boxes managment - {{user_info}}</title>
+<link rel="stylesheet" href="{% static "style.css" %}" type="text/css" />
+</head>
+<body>
+
+<!-- a href="admin/site1/ata_box/add/">new</a -->
+logged as {{user_info}}<a href="{% url 'logout' %}">[change login]</a><hr>
+{% if user_is_root  %}
+<a href="/admin">user&organisation managment</a><hr>
+{% endif %}
+
+
+<a href="{% url 'edit_item'  'new' %}">new</a>
+
+
+<table class='main_page_table'>
+<tr class='main_page_table_row table_header'>
+	<td>id</td><td>edit</td><td>delete</td><td>Phone-No</td><td>MAC address</td>
+	<td>SIP Voice</td><td>SIP Control</td><!-- td>Status</td --><td>Last online</td><td>Firmware version</td>
+	<td>Customer</td>
+	<td>SIP_Voice register</td></td>
+	<td>SIP_Control register</td>
+	<td>Cell signall</td>
+	<td>Inet via</td>
+	</tr>
+
+{% for item in item_list %}
+<tr class='main_page_table_row'>
+	<td>{{ item.id }}</td>
+	<td><a href="{% url 'edit_item' item.id %}"><img width='20px' src="{% static 'edit.png' %}"></a></td>
+	<td><a href="{% url 'delete_item'  item.id %}"><img width='20px' src="{% static 'delete.jpg' %}"></a></td>
+	<td>{{ item.phone }}</td>
+	<td>{{ item.mac }}</td>
+	<td>{{ item.sip_voice }}</td>
+	<td>{{ item.sip_control }}</td>
+	<!-- td>{{ item.status }}</td -->
+	<td>{{ item.last_online }}</td>
+	<td>{{ item.fw_version }}</td>
+	<td>{{ item.customer }}</td>
+	<td>{{ item.api_sip_voice_registered }}</td>
+	<td>{{ item.api_sip_control_registered }}</td>
+	<td>{{ item.api_cell_signal }}</td>
+	<td>{{ item.api_internet }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<pre>
+{{test}}
+</pre>
+</body>
+<html>

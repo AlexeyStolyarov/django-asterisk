@@ -1,0 +1,35 @@
+#!/usr/bin/python
+
+
+import redis
+import time
+
+from ami_reboot import *
+
+#conf = ConfigMake()
+#conf.prepare_data(conf.test, conf.test2)
+
+
+import time
+
+#print time.strftime("%d %b %Y, %H:%m")
+
+
+
+
+
+
+import random; 
+import string; 
+
+print ''.join([random.choice(string.ascii_letters + string.digits) for x in range(10)])
+
+
+
+
+
+y = {'ss':'as', '1':'w4'}
+x = {}
+
+z = x.update(y)
+print x
