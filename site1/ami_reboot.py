@@ -13,7 +13,7 @@ import base64
 
 
 AMI_LOGIN='admin'
-AMI_PASSWD='Hfnfneq'
+AMI_PASSWD='****'
 #help (asterisk.manager)
 
 
