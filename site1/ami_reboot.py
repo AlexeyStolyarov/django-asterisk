@@ -35,6 +35,9 @@ def write_sip_conf(mac_address, sip_msg_user, sip_msg_password):
 	f.write("secret=%s\n" % (sip_msg_password))
 	f.close()
 
+	print "[%s]: config /srv/sip_conf/%s.conf has been created" %  (time.strftime("%d %b %Y, %H:%m"), mac_address )
+
+
 def delete_sip_conf(mac_address):
 	try:
 		os.remove("/srv/sip_conf/%s.conf" % (mac_address) )
@@ -93,7 +96,7 @@ class ConfigMake:
 		#self.fields["voip1_rule1_suffix"]  	= "'1'"
 		self.fields["voip1_rule1_protocol"]	= "'SIP'"
 		self.fields["voip1_rule1_callerid"]	= "'globacom'"
-		#self.fields["voip1_rule2_pattern"]	= "_8."
+		self.fields["voip1_rule2_pattern"]	= "_1X."
 		#self.fields["voip1_rule2_prefix"]	= "1"
 		#self.fields["voip1_rule2_offset"]	= "'1'"
 		#self.fields["voip1_rule2_length"]	= "'1'"
