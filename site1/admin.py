@@ -90,7 +90,10 @@ def ata_config(modeladmin, request, queryset):
 		arr2['voip1_rule1_callerid'] = i.voip1_rule1_callerid
 		arr2['voip1_protocol'] = i.voip1_protocol
 		arr2['voip1_host'] = i.sip_server
-
+		if (i.lock_internet==True):
+		    arr2['lock_internet']='lock'
+		else:
+		    arr2['lock_internet']='unlock'
 		#arr2['voip1_rule2_pattern'] = i.voip1_rule2_pattern
 		#arr2['voip1_rule2_prefix'] = i.voip1_rule2_prefix
 		#arr2['voip1_rule2_offset'] = i.voip1_rule2_offset
@@ -123,7 +126,10 @@ def ata_config2(i):
 	arr2['voip1_rule1_callerid'] = i.voip1_rule1_callerid
 	arr2['voip1_protocol'] = i.voip1_protocol
 	arr2['voip1_host'] = i.sip_server
-
+	if (i.lock_internet==True):
+	    arr2['lock_internet']='lock'
+	else:
+	    arr2['lock_internet']='unlock'
 	#arr2['voip1_rule2_pattern'] = i.voip1_rule2_pattern
 	#arr2['voip1_rule2_prefix'] = i.voip1_rule2_prefix
 	#arr2['voip1_rule2_offset'] = i.voip1_rule2_offset
@@ -159,7 +165,7 @@ class DevicesAdmin(admin.ModelAdmin):
 			self.readonly_fields = ('last_connection','inet_type','signal_strenght', 'sip_voip_registered', 'sip_control_registered',
 									'sip_msg_user','sip_msg_server','sip_msg_password','voip1_protocol')
 			self.fieldsets = (
-								( None, {'fields': (('mac_address', 'organization'),)} ),
+								( None, {'fields': (('mac_address', 'organization'),'lock_internet')} ),
 								( 'Customer info',
 										{
 										'fields':(
@@ -268,12 +274,12 @@ class DevicesAdmin(admin.ModelAdmin):
 
 	# what to show in list view
 	list_display = ('mac_address','customer_fname','customer_lname',
-					'last_connection','signal_strenght','inet_type',
+					'last_connection','signal_strenght','inet_type','lock_internet'
 					)
 
 
 	# Group_by filter
-	list_filter = ('signal_strenght','inet_type','last_connection', 'sip_control_registered', 'sip_voip_registered')
+	list_filter = ('signal_strenght','inet_type','lock_internet','last_connection', 'sip_control_registered', 'sip_voip_registered')
 
 	# Search fields
 	search_fields = ['mac_address','customer_fname','customer_lname']

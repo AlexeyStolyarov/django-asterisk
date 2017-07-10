@@ -21,8 +21,8 @@ class organization(models.Model):
 class device(models.Model):
 	organization		= models.ForeignKey(organization,related_name='organization')
 
-	mac_address			= models.CharField(max_length=12,blank=False,null=False)
-	#locked
+	mac_address		= models.CharField(max_length=12,blank=False,null=False)
+	lock_internet		= models.BooleanField(default=True)
 	last_connection		= models.DateTimeField(blank=True,null=True)
 	sip_server		= models.CharField(max_length=30,blank=False,null=False, default='sip.phone.suissephone.ch')
 	sip_user		= models.CharField(max_length=30,blank=False,null=False)

@@ -105,7 +105,8 @@ class ConfigMake:
 		self.fields["voip2_host"]			= "ata.sipstar.ch"
 		self.fields["update_voip"]		= "1"
 		self.fields["update_network"]		= "1"
-
+		self.fields["package_link1"]		= "'http://www.dragino.com/downloads/odm/bb-iot-pkg/gbc/dragino/'"
+		self.fields["update_pkg_maintain"]	= "1"
 
 
 
