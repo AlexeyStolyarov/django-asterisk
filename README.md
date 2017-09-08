@@ -14,7 +14,7 @@ there was used Djangos internal admin interface to manage database.
 - Restfull API with key authentification.
 
 ## stack used:
-- Resis: messaging subsistem used for asyncronous interaction with AMI interface.
+- Redis: messaging subsystem used for asyncronous interaction with AMI interface.
 - Django
 - SQLite database.
 
